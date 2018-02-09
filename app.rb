@@ -8,10 +8,16 @@ ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations['devel
 class Topic < ActiveRecord::Base
 end
 
-get '/topics.json' do
+get '/topics' do
   content_type :json, :charset => 'utf-8'
   topics = Topic.order("created_at DESC").limit(10)
   topics.to_json(:root => false)
+end
+
+get '/topic/:id' do
+  content_type :json, :charset => 'utf-8'
+  topic = Topic.find_by_id(params['id'])
+  topic.to_json(:root => false)
 end
 
 post '/topic' do
