@@ -2,7 +2,7 @@
 
 ## reference
 
-- https://qiita.com/u1\_fukui/items/88c10d4d530ec6fbaaa1
+- [https://qiita.com/u1_fukui/items/88c10d4d530ec6fbaaa1](https://qiita.com/u1_fukui/items/88c10d4d530ec6fbaaa1)
 
 ## database.yml
 
