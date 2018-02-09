@@ -1,0 +1,7 @@
+development:
+  adapter: mysql2
+  database: myapp
+  host: your_host
+  username: your_username
+  password: your_password
+  encoding: utf8
