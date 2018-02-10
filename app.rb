@@ -1,12 +1,6 @@
-require 'active_record'
-require 'mysql2'
 require 'sinatra'
-
-ActiveRecord::Base.configurations = YAML.load_file('database.yml')
-ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations['development'])
-
-class Topic < ActiveRecord::Base
-end
+require 'sinatra/activerecord'
+require './models/topics'
 
 get '/topics' do
   content_type :json, :charset => 'utf-8'
