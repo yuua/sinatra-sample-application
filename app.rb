@@ -1,16 +1,11 @@
-require 'active_record'
-require 'mysql2'
 require 'sinatra'
-
-ActiveRecord::Base.configurations = YAML.load_file('database.yml')
-ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations['development'])
-
-class Topic < ActiveRecord::Base
-end
+require 'sinatra/activerecord'
+require './models/topics'
 
 get '/topics' do
   content_type :json, :charset => 'utf-8'
-  topics = Topic.order("created_at DESC").limit(10)
+  params['limit'] == nil ? limit = 10 : limit = params['limit']
+  topics = Topic.order("created_at DESC").limit(limit)
   topics.to_json(:root => false)
 end
 
